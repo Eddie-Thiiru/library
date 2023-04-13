@@ -153,42 +153,47 @@ function displayBook() {
     });
   }
 
-  // Removes books from the display and the library
-  const removeButton = document.querySelectorAll('.remove-book');
-  removeButton.forEach((button) =>
-    button.addEventListener('click', () => {
-      const parent = button.parentNode;
-      const parentBookName = parent.dataset.title;
-      const index = myLibrary.findIndex((item) => item.name === parentBookName);
-      console.log(index);
-      myLibrary.splice(index, 1);
-      display.removeChild(parent);
-    })
-  );
+  function eventHandler() {
+    const removeButton = document.querySelectorAll('.remove-book');
+    const statusButton = document.querySelectorAll('.book-status');
 
-  // Toggles the book read status
-  const statusButton = document.querySelectorAll('.book-status');
-  statusButton.forEach((button) => {
-    button.addEventListener('click', () => {
-      const parent = button.parentNode;
-      const parentBookName = parent.dataset.title;
-      const index = myLibrary.findIndex((item) => item.name === parentBookName);
-      const found = Object.values(myLibrary[index]);
+    // Removes books from the display and the library
+    removeButton.forEach((button) =>
+      button.addEventListener('click', () => {
+        const parent = button.parentNode;
+        const parentBookName = parent.dataset.title;
+        const index = myLibrary.findIndex(
+          (item) => item.name === parentBookName
+        );
 
-      console.log(found);
-      console.log(myLibrary[index]);
+        myLibrary.splice(index, 1);
+        display.removeChild(parent);
+      })
+    );
 
-      if (found.includes('Yes')) {
-        myLibrary[index].read = 'No';
-      } else {
-        myLibrary[index].read = 'Yes';
-      }
-      console.log(myLibrary[index]);
+    // Toggles the book read status
+    statusButton.forEach((button) => {
+      button.addEventListener('click', () => {
+        const parent = button.parentNode;
+        const parentBookName = parent.dataset.title;
+        const index = myLibrary.findIndex(
+          (item) => item.name === parentBookName
+        );
 
-      // empty current display and display book using
-      displayBook();
+        const found = Object.values(myLibrary[index]);
+
+        if (found.includes('Yes')) {
+          myLibrary[index].read = 'No';
+        } else {
+          myLibrary[index].read = 'Yes';
+        }
+
+        // empty current display and display book using
+        displayBook();
+      });
     });
-  });
+  }
+  eventHandler();
 }
 
 newBook.addEventListener('click', createForm);

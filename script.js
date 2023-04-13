@@ -26,19 +26,11 @@ function addBookToLibrary() {
     read.value = "No";
   }
 
-  const myBook = new Book(
-    name.value,
-    author.value,
-    pages.value,
-    read.value,
-    rating.value
-  );
+  const myBook = new Book(name.value, author.value, pages.value, read.value, rating.value);
   myLibrary.push(myBook);
 
   // removes the form from display
-  while (form.hasChildNodes()) {
-    form.removeChild(form.firstChild);
-  }
+  form.textContent = "";
 }
 
 function createForm() {
@@ -121,9 +113,7 @@ function createForm() {
 
 function displayBook() {
   // removes the display's child nodes
-  while (display.hasChildNodes()) {
-    display.removeChild(display.firstChild);
-  }
+  display.textContent = "";
 
   for (let i = 0; i < myLibrary.length; i++) {
     const book = myLibrary[i];

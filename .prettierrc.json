@@ -1,15 +1,13 @@
 {
-  "printWidth": 100,
+    "printWidth": 80,
 
-  "semi": true,
+    "semi": true,
 
-  "singleQuote": true,
+    "singleQuote": true,
 
-  "tabWidth": 4,
+    "useTabs": false,
 
-  "useTabs": false,
+    "trailingComma": "none",
 
-  "trailingComma": "none",
-
-  "endOfLine": "auto"
+    "endOfLine": "auto"
 }

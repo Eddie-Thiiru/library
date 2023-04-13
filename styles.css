@@ -1,0 +1,36 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-size: 16px;
+    height: 100vh;
+}
+
+.container {
+    height: 100%;
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr 3fr 1fr;
+    grid-template-rows: 3fr 1fr 6fr;
+}
+
+.add-book-button {
+    grid-column: 1 / 2;
+    grid-row: 2 / 3;
+}
+
+#my-form {
+    grid-column: 2 / 3;
+    grid-row: 3 / 4;
+}
+
+#display {
+    background-color: lightgray;
+}
+
+.display-button {
+    grid-row: 3 / 4;
+}
